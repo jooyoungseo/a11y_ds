@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.274">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="JooYoung Seo">
+<meta name="dcterms.date" content="2023-07-31">
+
+<title>a11y_ds - Session 1: Installation Guide for R and Visual Studio Code for Screen Reader Users</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">a11y_ds</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html" rel="" target="">
+ <span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./about.html" rel="" target="">
+ <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="./installation_r_vscode.html" rel="" target="" aria-current="page">
+ <span class="menu-text">Session 1: Installation Guide for R and Visual Studio Code for Screen Reader Users</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#sec-install-r-vscode" id="toc-sec-install-r-vscode" class="nav-link active" data-scroll-target="#sec-install-r-vscode">Install R, Visual Studio Code, and Related Dependencies</a>
+  <ul class="collapse">
+  <li><a href="#windows" id="toc-windows" class="nav-link" data-scroll-target="#windows">Windows</a></li>
+  <li><a href="#mac-os" id="toc-mac-os" class="nav-link" data-scroll-target="#mac-os">Mac OS</a></li>
+  </ul></li>
+  <li><a href="#sec-vscode-configuration" id="toc-sec-vscode-configuration" class="nav-link" data-scroll-target="#sec-vscode-configuration">Visual Studio Code Configuration</a></li>
+  <li><a href="#sec-rprofile-settings" id="toc-sec-rprofile-settings" class="nav-link" data-scroll-target="#sec-rprofile-settings">RProfile Settings</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Session 1: Installation Guide for R and Visual Studio Code for Screen Reader Users</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>JooYoung Seo </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">July 31, 2023</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+<section id="sec-install-r-vscode" class="level1">
+<h1>Install R, Visual Studio Code, and Related Dependencies</h1>
+<p>this section describes how to install R, Visual Studio Code, and other related dependencies. The following instructions are tested on Windows 10 and Mac OS.</p>
+<section id="windows" class="level2">
+<h2 class="anchored" data-anchor-id="windows">Windows</h2>
+<ol type="1">
+<li><p>Press <code>Windows+R</code> and type “cmd” without the quotes. Press <code>Ctrl+Shift+Enter</code> to run the command prompt as administrator privilege. If you are prompted for an administrator password or confirmation, type the password or provide confirmation.</p></li>
+<li><p>Copy and paste the following command into the command prompt and press enter. This will install chocolatey, a package manager for Windows. Note that there is copy button below the command. You can click the copy button to copy the command. To paste the command into the command prompt, you can press Ctrl+V.</p></li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">@</span><span class="st">"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe"</span> <span class="at">-NoProfile</span> <span class="at">-InputFormat</span> None <span class="at">-ExecutionPolicy</span> Bypass <span class="at">-Command</span> <span class="st">"[System.Net.ServicePointManager]::SecurityProtocol = 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))"</span> <span class="kw">&amp;&amp;</span> <span class="ex">SET</span> <span class="st">"PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="3" type="1">
+<li>Copy and paste the following command into the opened command prompt and press enter. This will install R, VSCode and other related dependencies. Grab a cup of coffee and wait for the installation to finish. It may take a while. You will hear a “do mi sol” beep sound when the installation is completed. If it fails to install, you will hear a “do do do” beep sound. If you hear the “do do do” beep sound, you can try to run the command again.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">powershell</span> <span class="at">-Command</span> <span class="st">"&amp; { </span><span class="va">$sapi</span><span class="st"> = New-Object -ComObject SAPI.SpVoice; </span><span class="va">$sapi</span><span class="st">.Rate = 10; </span><span class="va">$packages</span><span class="st"> = @('tinytex', 'pandoc', 'quarto', 'rtools', 'r.project', 'vscode'); </span><span class="va">$executables</span><span class="st"> = @('tlmgr', 'pandoc', 'quarto', '', 'R', 'code'); </span><span class="va">$installPackages</span><span class="st"> = @(); </span><span class="va">$installedPackages</span><span class="st"> = @(); foreach (</span><span class="va">$package</span><span class="st"> in </span><span class="va">$packages</span><span class="st">) { </span><span class="va">$index</span><span class="st"> = </span><span class="va">$packages</span><span class="st">.IndexOf(</span><span class="va">$package</span><span class="st">); if (</span><span class="va">$package</span><span class="st"> -eq 'rtools') { if ([Environment]::GetEnvironmentVariable('RTOOLS43_HOME', 'User') -eq </span><span class="va">$null</span><span class="st"> -and [Environment]::GetEnvironmentVariable('RTOOLS43_HOME', 'Machine') -eq </span><span class="va">$null</span><span class="st">) { </span><span class="va">$installPackages</span><span class="st"> += </span><span class="va">$package</span><span class="st"> } else { </span><span class="va">$installedPackages</span><span class="st"> += </span><span class="va">$package</span><span class="st"> } } else { if ((Get-Command </span><span class="va">$executables</span><span class="st">[</span><span class="va">$index</span><span class="st">] -ErrorAction SilentlyContinue) -eq </span><span class="va">$null</span><span class="st">) { </span><span class="va">$installPackages</span><span class="st"> += </span><span class="va">$package</span><span class="st"> } else { </span><span class="va">$installedPackages</span><span class="st"> += </span><span class="va">$package</span><span class="st"> } } }; if (</span><span class="va">$installedPackages</span><span class="st">.Count -gt 0) { [console]::beep(261, 100); Start-Sleep -Milliseconds 100; [console]::beep(329, 100); Start-Sleep -Milliseconds 100; [console]::beep(392, 100); </span><span class="va">$sapi</span><span class="st">.Speak('The following packages are already installed: ' + (</span><span class="va">$installedPackages</span><span class="st"> -join ', ')) }; if (</span><span class="va">$installPackages</span><span class="st">.Count -gt 0) { [console]::beep(261, 100); Start-Sleep -Milliseconds 100; [console]::beep(329, 100); Start-Sleep -Milliseconds 100; [console]::beep(392, 100); </span><span class="va">$sapi</span><span class="st">.Speak('The following packages will be installed: ' + (</span><span class="va">$installPackages</span><span class="st"> -join ', ')); choco install </span><span class="va">$installPackages</span><span class="st"> -y }; if(</span><span class="va">$installedPackages</span><span class="st">.Count -eq 0 -and </span><span class="va">$installPackages</span><span class="st">.Count -eq 0) {[console]::beep(261, 100); Start-Sleep -Milliseconds 100; [console]::beep(329, 100); Start-Sleep -Milliseconds 100; [console]::beep(392, 100); </span><span class="va">$sapi</span><span class="st">.Speak('All packages are already installed.')} }"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="4" type="1">
+<li>After installation, type the following in the opened command prompt and hit enter key. This will add R to your path environment variable. You will hear a “do mi sol” beep sound when the installation is completed. If it fails to install, you will hear a “do do do” beep sound. If you hear the “do do do” beep sound, you can try to run the command again.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">powershell</span> <span class="at">-Command</span> <span class="st">"&amp; { </span><span class="va">$sapi</span><span class="st"> = New-Object -ComObject SAPI.SpVoice; </span><span class="va">$sapi</span><span class="st">.Rate = 10; try { </span><span class="va">$RInstalls</span><span class="st"> = Get-ChildItem 'C:\Program Files\R' -Directory; </span><span class="va">$LatestR</span><span class="st"> = </span><span class="va">$RInstalls</span><span class="st"> | Sort-Object LastWriteTime -Descending | Select-Object -First 1; </span><span class="va">$RBinPath</span><span class="st"> = Join-Path -Path </span><span class="va">$LatestR</span><span class="st">.FullName -ChildPath 'bin\x64'; </span><span class="va">$RSetRegPath</span><span class="st"> = Join-Path -Path </span><span class="va">$LatestR</span><span class="st">.FullName -ChildPath 'bin\x64\RSetReg.exe'; &amp; </span><span class="va">$RSetRegPath</span><span class="st">; </span><span class="va">$UserPath</span><span class="st"> = [Environment]::GetEnvironmentVariable('Path', [System.EnvironmentVariableTarget]::User); </span><span class="va">$SystemPath</span><span class="st"> = [Environment]::GetEnvironmentVariable('Path', [System.EnvironmentVariableTarget]::Machine); if ((</span><span class="va">$UserPath</span><span class="st"> -split ';' -notcontains </span><span class="va">$RBinPath</span><span class="st">) -and (</span><span class="va">$SystemPath</span><span class="st"> -split ';' -notcontains </span><span class="va">$RBinPath</span><span class="st">)) { </span><span class="va">$NewPath</span><span class="st"> = </span><span class="va">$UserPath</span><span class="st"> + ';' + </span><span class="va">$RBinPath</span><span class="st">; [Environment]::SetEnvironmentVariable('Path', </span><span class="va">$NewPath</span><span class="st">, [System.EnvironmentVariableTarget]::User) }; [console]::beep(261, 100); Start-Sleep -Milliseconds 100; [console]::beep(329, 100); Start-Sleep -Milliseconds 100; [console]::beep(392, 100); </span><span class="va">$sapi</span><span class="st">.Speak('Process Completed Successfully') } catch { [console]::beep(261, 100); Start-Sleep -Milliseconds 100; [console]::beep(261, 100); Start-Sleep -Milliseconds 100; [console]::beep(261, 100); </span><span class="va">$sapi</span><span class="st">.Speak('An Error Occurred During Execution') }}"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="5" type="1">
+<li>In the opened command prompt, copy and paste the following command and press enter. This will install R packages that are required for VSCode.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="sc">@</span>refreshenv <span class="sc">&amp;&amp;</span> Rscript <span class="sc">-</span>e <span class="st">"packages &lt;- c('languageserver', 'lintr', 'httpgd', 'DT', 'beepr', 'devtools'); installed_packages &lt;- rownames(installed.packages()); packages_to_install &lt;- setdiff(packages, installed_packages); if(length(packages_to_install) &gt; 0) { install.packages(packages_to_install, repos = 'https://cloud.r-project.org/') }; if(!'vscDebugger' %in% installed_packages) { if(!require(remotes)) { install.packages('remotes', repos = 'https://cloud.r-project.org/') }; remotes::install_github('ManuelHentschel/vscDebugger') }"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="6" type="1">
+<li>The following is optional. However, I recommend you to install the latest version of PowerShell to benefit from VSCode shell integration feature. You can copy and paste the following command into the opened command prompt and press enter. Note that the default PowerShell version on Windows 10 is 5.1. The following command will install PowerShell 7 or above.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">winget</span> install Microsoft.PowerShell</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="mac-os" class="level2">
+<h2 class="anchored" data-anchor-id="mac-os">Mac OS</h2>
+<p>The following assumes that you have installed Homebrew on your system. If you haven’t installed Homebrew, you can install it by following the instruction described in the <a href="https://brew.sh/" target="_blank">Homebrew website</a>.</p>
+<ol type="1">
+<li><p>Open terminal by pressing <code>Command+Space</code> and type “terminal” without the quotes. Press enter to open the terminal.</p></li>
+<li><p>Copy and paste the following command into the terminal and press enter. Note that there is copy button below the command. You can click the copy button to copy the command. To paste the command into the command prompt, you can press CMD+V. Some commands may require you to enter your password. If so, you will be prompted to enter your password. You will not see any characters when you type your password. Just type your password and press enter.</p></li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#  Install R</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install r</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Install Pandoc</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install pandoc</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Install Quarto</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install quarto</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Install VSCode</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install <span class="at">--cask</span> visual-studio-code</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Install xcode command line tools</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="ex">xcode-select</span> <span class="at">--install</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Install TinyTeX</span></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> install tinytex</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="3" type="1">
+<li>In the terminal, copy and paste the following command and press enter. This will install R packages that are required for VSCode.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> <span class="at">-e</span> <span class="st">'packages &lt;- c("languageserver", "lintr", "httpgd", "DT", "beepr", "devtools"); installed_packages &lt;- rownames(installed.packages()); packages_to_install &lt;- setdiff(packages, installed_packages); if(length(packages_to_install) &gt; 0) { install.packages(packages_to_install, repos = "https://cloud.r-project.org/") }; if(!"vscDebugger" %in% installed_packages) { if(!require(remotes)) { install.packages("remotes", repos = "https://cloud.r-project.org/") }; remotes::install_github("ManuelHentschel/vscDebugger") }'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="sec-vscode-configuration" class="level1">
+<h1>Visual Studio Code Configuration</h1>
+<p>Once you have installed R and Visual Studio Code following the instruction described in <a href="#sec-install-r-vscode" class="quarto-xref">Section&nbsp;1</a>, you need to configure VSCode to make it accessible. I have created an accessible VSCode profile for data science work for your convenience. This profile contains a set of keyboard shortcuts, settings, and extensions that are useful for screen reader users when working with R and Python. You can apply this profile by following the steps below:</p>
+<ol type="1">
+<li><p>Open VSCode. You can do this by pressing <code>Windows+R</code> and type “code” without the quotes and press enter. On Mac, you can press <code>Command+Space</code> and type “code” without the quotes and press enter.</p></li>
+<li><p>In VSCode, press <code>Ctrl+Shift+P</code> (on Windows) or <code>Command+Shift+P</code> (on Mac) to open the command palette.</p></li>
+<li><p>Type “import profile” without the quotes and press enter.</p></li>
+<li><p>If you hear “Provide Profile Template URL - Import from Profile Template…” copy and paste the following URL into the opened input box and press enter.</p></li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>https://insiders.vscode.dev/profile/github/a8473b82a7662f5aab69aca5c6709ef6</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="5" type="1">
+<li><p>Press <code>Ctrl+0</code> (on Windows) or <code>Command+0</code> (on Mac) to open the sidebar. You will hear “data_science_accessible Tree View.”</p></li>
+<li><p>Press <code>Ctrl+LeftArrow</code> (on Windows) or <code>Command+LeftArrow</code> (on Mac) to collapse all the opened tree views in the sidebar.</p></li>
+<li><p>Keep all the checkboxes checked and press <code>Tab</code> key multiple times until you hear “Create Profile” button and press <code>Enter</code> key.</p></li>
+</ol>
+<p>To verify whether the profile is applied correctly, you can check the title bar of VSCode. If you hear “data science accessible - Visual Studio Code,” the profile is applied correctly.</p>
+</section>
+<section id="sec-rprofile-settings" class="level1">
+<h1>RProfile Settings</h1>
+<p>After configuring VSCode accessibility as described in <a href="#sec-vscode-configuration" class="quarto-xref">Section&nbsp;2</a>, you need to add the following code to your <code>Rprofile</code>. The <code>Rprofile</code> is a script that R runs at startup. You can use this script to customize R startup behavior to suit your personal preferences.</p>
+<p>I have created an accessible <code>Rprofile</code> for your convenience. This <code>Rprofile</code> contains a set of options that are useful for screen reader users. To apply this <code>Rprofile</code>, folow the steps below:</p>
+<ol type="1">
+<li><p>Open VSCode. You can do this by pressing <code>Windows+R</code> and type “code” without the quotes and press enter. On Mac, you can press <code>Command+Space</code> and type “code” without the quotes and press enter.</p></li>
+<li><p>In VSCode, press <code>Ctrl+Shift+P</code> (on Windows) or <code>Command+Shift+P</code> (on Mac) to open the command palette.</p></li>
+<li><p>Type “create r terminal” without the quotes and press enter.</p></li>
+<li><p>In the opened R terminal, type the following command and press enter. This will open your <code>Rprofile</code> in VSCode.</p></li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">edit_r_profile</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="5" type="1">
+<li><p>In the opened <code>Rprofile</code>, press <code>Ctrl+End</code> (on Windows) or <code>Command+DownArrow</code> (on Mac) to move to the end of the file.</p></li>
+<li><p>Copy and paste the following code to the end of the file. Please don’t manually copy the code as it is too long. Instead, use the copy button below the code to copy the code. To paste the code into the <code>Rprofile</code>, you can press <code>Ctrl+V</code> (on Windows) or <code>Command+V</code> (on Mac).</p></li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Useful option 1</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="do">## Setting text-based interaction instead of R GUI dialog box; especially, useful when choosing CRAN mirror server for package installation.</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="do">## Since R GUI dialog box is not accesible, blind R users tend to pre-define their CRAN mirror server using `chooseCRANmirror(ind = 1)`; however, you can now access the CRAN server list interactively using the following option.</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="do">## Furthermore, when updating R packages, users often encounter inaccessible dialog box asking about whether to also update other dependencies, if any. The following option also resolves that issue by allowing users to choose based on text UI.</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">menu.graphics =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Useful option 2</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="do">## Setting pager for your preferable text editor instead of the R internal one which is inaccessible ; especially useful when calling such R functions employing pager option under the hood as `data()` function.</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="do">## For example, if you would like to know what dataset are available under "ggplot2" package, you might type in `data(package = "ggplot2")`; however, the result viewer displayed in the internal pager is not accessible.</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="do">## If you set your pager option like below, you would be able to check the results in your default editor which is "notepad."</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="do">## This option can be instrumental in other functions using pager option like `reticulate::py_help()`.</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">pager =</span> <span class="fu">getOption</span>(<span class="st">"editor"</span>))</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Useful option 3</span></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a><span class="do">## Playing beep sound per error and use {rlang} style error trace:</span></span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">error =</span> <span class="cf">function</span>() {</span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>  rlang<span class="sc">::</span><span class="fu">entrace</span>()</span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>  beepr<span class="sc">::</span><span class="fu">beep</span>()</span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Useful option 4</span></span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a><span class="do">## Turn off unicode for better screen reader readability</span></span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">cli.unicode =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Useful option 5</span></span>
+<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a><span class="do">## Always use RStudio CRAN mirror for downloading packages</span></span>
+<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">repos =</span> <span class="fu">c</span>(<span class="at">CRAN =</span> <span class="st">"https://cran.rstudio.com"</span>))</span>
+<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a><span class="co"># Useful option 6</span></span>
+<span id="cb10-30"><a href="#cb10-30" aria-hidden="true" tabindex="-1"></a><span class="do">## Give more information about the LaTeX error</span></span>
+<span id="cb10-31"><a href="#cb10-31" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">tinytex.verbose =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb10-32"><a href="#cb10-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-33"><a href="#cb10-33" aria-hidden="true" tabindex="-1"></a><span class="co"># Specific options for VSCode:</span></span>
+<span id="cb10-34"><a href="#cb10-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-35"><a href="#cb10-35" aria-hidden="true" tabindex="-1"></a><span class="do">## Use VSCode as the default R editor</span></span>
+<span id="cb10-36"><a href="#cb10-36" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">editor =</span> <span class="st">"code"</span>)</span>
+<span id="cb10-37"><a href="#cb10-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-38"><a href="#cb10-38" aria-hidden="true" tabindex="-1"></a><span class="do">## VSCode R initializer and other options</span></span>
+<span id="cb10-39"><a href="#cb10-39" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">interactive</span>() <span class="sc">&amp;&amp;</span> <span class="fu">Sys.getenv</span>(<span class="st">"RSTUDIO"</span>) <span class="sc">==</span> <span class="st">""</span>) {</span>
+<span id="cb10-40"><a href="#cb10-40" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Load `init.R` provided by vscode-r extension: This is required to attach any user-custom R terminal</span></span>
+<span id="cb10-41"><a href="#cb10-41" aria-hidden="true" tabindex="-1"></a>  <span class="fu">source</span>(<span class="fu">file.path</span>(<span class="fu">Sys.getenv</span>(<span class="cf">if</span> (.Platform<span class="sc">$</span>OS.type <span class="sc">==</span> <span class="st">"windows"</span>) <span class="st">"USERPROFILE"</span> <span class="cf">else</span> <span class="st">"HOME"</span>), <span class="st">".vscode-R"</span>, <span class="st">"init.R"</span>))</span>
+<span id="cb10-42"><a href="#cb10-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-43"><a href="#cb10-43" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Use an external browser for displaying html files, such as {gt} and {xaringan}</span></span>
+<span id="cb10-44"><a href="#cb10-44" aria-hidden="true" tabindex="-1"></a>  <span class="fu">options</span>(<span class="at">vsc.viewer =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb10-45"><a href="#cb10-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-46"><a href="#cb10-46" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Use an external browser for web apps, such as {shiny}</span></span>
+<span id="cb10-47"><a href="#cb10-47" aria-hidden="true" tabindex="-1"></a>  <span class="fu">options</span>(<span class="at">vsc.browser =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb10-48"><a href="#cb10-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-49"><a href="#cb10-49" aria-hidden="true" tabindex="-1"></a>  <span class="co"># View help page in an external browser</span></span>
+<span id="cb10-50"><a href="#cb10-50" aria-hidden="true" tabindex="-1"></a>  <span class="fu">options</span>(<span class="at">vsc.helpPanel =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb10-51"><a href="#cb10-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-52"><a href="#cb10-52" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Use original data viewer (i.e., `utils::View()`)</span></span>
+<span id="cb10-53"><a href="#cb10-53" aria-hidden="true" tabindex="-1"></a>  <span class="fu">options</span>(<span class="at">vsc.view =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb10-54"><a href="#cb10-54" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb10-55"><a href="#cb10-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-56"><a href="#cb10-56" aria-hidden="true" tabindex="-1"></a><span class="do">## Define code style according to {tidyverse}</span></span>
+<span id="cb10-57"><a href="#cb10-57" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">languageserver.formatting_style =</span> <span class="cf">function</span>(options) {</span>
+<span id="cb10-58"><a href="#cb10-58" aria-hidden="true" tabindex="-1"></a>  styler<span class="sc">::</span><span class="fu">tidyverse_style</span>(<span class="at">indent_by =</span> <span class="dv">2</span>L)</span>
+<span id="cb10-59"><a href="#cb10-59" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb10-60"><a href="#cb10-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-61"><a href="#cb10-61" aria-hidden="true" tabindex="-1"></a><span class="do">## Define a more accessible view function</span></span>
+<span id="cb10-62"><a href="#cb10-62" aria-hidden="true" tabindex="-1"></a>View <span class="ot">&lt;-</span> <span class="cf">function</span>(...) {</span>
+<span id="cb10-63"><a href="#cb10-63" aria-hidden="true" tabindex="-1"></a>  DT<span class="sc">::</span><span class="fu">datatable</span>(...)</span>
+<span id="cb10-64"><a href="#cb10-64" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="7" type="1">
+<li><p>Press <code>Ctrl+S</code> (on Windows) or <code>Command+S</code> (on Mac) to save the file.</p></li>
+<li><p>Press <code>Ctrl+W</code> (on Windows) or <code>Command+W</code> (on Mac) to close the file.</p></li>
+<li><p>Close R terminal by pressing <code>Ctrl+W</code> (on Windows) or <code>Command+W</code> (on Mac). You may be prompted to confirm whether you want to close the terminal. If so, press <code>Enter</code> key to confirm.</p></li>
+</ol>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        for (let i = 0; i < 2; i++) {
+          container.appendChild(note.children[i].cloneNode(true));
+        }
+        return container.innerHTML
+      } else {
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      return note.innerHTML;
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

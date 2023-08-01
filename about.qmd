@@ -1,0 +1,5 @@
+---
+title: "About"
+---
+
+Accessible data science is a project to make data science more accessible to everyone. We do this by creating a community of people who are interested in data science and by creating resources that help people learn data science.
