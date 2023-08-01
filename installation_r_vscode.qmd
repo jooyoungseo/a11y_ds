@@ -52,6 +52,8 @@ powershell -Command "& { $sapi = New-Object -ComObject SAPI.SpVoice; $sapi.Rate 
 winget install Microsoft.PowerShell
 ```
 
+7. Go to @sec-vscode-configuration, to complete the remaining steps.
+
 
 ## Mac OS
 
@@ -93,6 +95,9 @@ quarto install tinytex
 Rscript -e 'packages <- c("languageserver", "lintr", "httpgd", "DT", "beepr", "devtools"); installed_packages <- rownames(installed.packages()); packages_to_install <- setdiff(packages, installed_packages); if(length(packages_to_install) > 0) { install.packages(packages_to_install, repos = "https://cloud.r-project.org/") }; if(!"vscDebugger" %in% installed_packages) { if(!require(remotes)) { install.packages("remotes", repos = "https://cloud.r-project.org/") }; remotes::install_github("ManuelHentschel/vscDebugger") }'
 ```
 
+4. Go to @sec-vscode-configuration, to complete the remaining steps.
+
+
 # Visual Studio Code Configuration {#sec-vscode-configuration}
 
 Once you have installed R and Visual Studio Code following the instruction described in @sec-install-r-vscode, you need to configure VSCode to make it accessible. I have created an accessible VSCode profile for data science work for your convenience. This profile contains a set of keyboard shortcuts, settings, and extensions that are useful for screen reader users when working with R and Python. You can apply this profile by following the steps below:
@@ -105,7 +110,7 @@ Once you have installed R and Visual Studio Code following the instruction descr
 
 4. If you hear "Provide Profile Template URL - Import from Profile Template..." copy and paste the following URL into the opened input box and press enter.
 
-```{markdown}
+```{block}
 #| eval: false
 #| label: VSCode-Profile-URL
 
