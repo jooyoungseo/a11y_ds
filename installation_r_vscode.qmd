@@ -10,7 +10,7 @@ this section describes how to install R, Visual Studio Code, and other related d
 
 ## Windows
 
-1. Press `Windows+R` and type "cmd" without the quotes. Press `Ctrl+Shift+Enter` to run the command prompt as administrator privilege. If you are prompted for an administrator password or confirmation, type the password or provide confirmation.
+1. Press `Windows+R` and type "cmd" without the quotes. After typing, don't hit `Enter`. Instead, press `Ctrl+Shift+Enter` to run the command prompt as administrator privilege. If you are prompted for an administrator password or confirmation, type the password or provide confirmation.
 
 2. Copy and paste the following command into the command prompt and press enter. This will install chocolatey, a package manager for Windows. Note that there is copy button below the command. You can click the copy button to copy the command. To paste the command into the command prompt, you can press Ctrl+V.
 
@@ -36,7 +36,11 @@ powershell -Command "& { $sapi = New-Object -ComObject SAPI.SpVoice; $sapi.Rate 
 powershell -Command "& { $sapi = New-Object -ComObject SAPI.SpVoice; $sapi.Rate = 10; try { $RInstalls = Get-ChildItem 'C:\Program Files\R' -Directory; $LatestR = $RInstalls | Sort-Object LastWriteTime -Descending | Select-Object -First 1; $RBinPath = Join-Path -Path $LatestR.FullName -ChildPath 'bin\x64'; $RSetRegPath = Join-Path -Path $LatestR.FullName -ChildPath 'bin\x64\RSetReg.exe'; & $RSetRegPath; $UserPath = [Environment]::GetEnvironmentVariable('Path', [System.EnvironmentVariableTarget]::User); $SystemPath = [Environment]::GetEnvironmentVariable('Path', [System.EnvironmentVariableTarget]::Machine); if (($UserPath -split ';' -notcontains $RBinPath) -and ($SystemPath -split ';' -notcontains $RBinPath)) { $NewPath = $UserPath + ';' + $RBinPath; [Environment]::SetEnvironmentVariable('Path', $NewPath, [System.EnvironmentVariableTarget]::User) }; [console]::beep(261, 100); Start-Sleep -Milliseconds 100; [console]::beep(329, 100); Start-Sleep -Milliseconds 100; [console]::beep(392, 100); $sapi.Speak('Process Completed Successfully') } catch { [console]::beep(261, 100); Start-Sleep -Milliseconds 100; [console]::beep(261, 100); Start-Sleep -Milliseconds 100; [console]::beep(261, 100); $sapi.Speak('An Error Occurred During Execution') }}"
 ```
 
-5. In the opened command prompt, copy and paste the following command and press enter. This will install R packages that are required for VSCode.
+5. Close the command prompt by pressing `Alt+F4` key.
+
+6. Press `Windows+R` and type "cmd" without the quotes. After typing, don't hit `Enter`. Instead, press `Ctrl+Shift+Enter` to run the command prompt as administrator privilege. If you are prompted for an administrator password or confirmation, type the password or provide confirmation.
+
+7. In the opened command prompt, copy and paste the following command and press enter. This will install R packages that are required for VSCode.
 
 ```{r}
 #| eval: false
@@ -44,7 +48,7 @@ powershell -Command "& { $sapi = New-Object -ComObject SAPI.SpVoice; $sapi.Rate 
 @refreshenv && Rscript -e "packages <- c('languageserver', 'lintr', 'httpgd', 'DT', 'beepr', 'devtools'); installed_packages <- rownames(installed.packages()); packages_to_install <- setdiff(packages, installed_packages); if(length(packages_to_install) > 0) { install.packages(packages_to_install, repos = 'https://cloud.r-project.org/') }; if(!'vscDebugger' %in% installed_packages) { if(!require(remotes)) { install.packages('remotes', repos = 'https://cloud.r-project.org/') }; remotes::install_github('ManuelHentschel/vscDebugger') }"
 ```
 
-6. The following is optional. However, I recommend you to install the latest version of PowerShell to benefit from VSCode shell integration feature. You can copy and paste the following command into the opened command prompt and press enter. Note that the default PowerShell version on Windows 10 is 5.1. The following command will install PowerShell 7 or above.
+8. The following is optional. However, I recommend you to install the latest version of PowerShell to benefit from VSCode shell integration feature. You can copy and paste the following command into the opened command prompt and press enter. Note that the default PowerShell version on Windows 10 is 5.1. The following command will install PowerShell 7 or above.
 
 ```{bash}
 #| eval: false
@@ -52,7 +56,7 @@ powershell -Command "& { $sapi = New-Object -ComObject SAPI.SpVoice; $sapi.Rate 
 winget install Microsoft.PowerShell
 ```
 
-7. Go to @sec-vscode-configuration, to complete the remaining steps.
+9. Go to @sec-vscode-configuration, to complete the remaining steps.
 
 
 ## Mac OS
