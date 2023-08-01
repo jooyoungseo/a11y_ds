@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="JooYoung Seo">
-<meta name="dcterms.date" content="2023-07-31">
+<meta name="dcterms.date" content="2023-08-01">
 
 <title>a11y_ds - Session 1: Installation Guide for R and Visual Studio Code for Screen Reader Users</title>
 <style>
@@ -182,7 +182,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">July 31, 2023</p>
+      <p class="date">August 1, 2023</p>
     </div>
   </div>
   
@@ -199,7 +199,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="windows" class="level2">
 <h2 class="anchored" data-anchor-id="windows">Windows</h2>
 <ol type="1">
-<li><p>Press <code>Windows+R</code> and type “cmd” without the quotes. Press <code>Ctrl+Shift+Enter</code> to run the command prompt as administrator privilege. If you are prompted for an administrator password or confirmation, type the password or provide confirmation.</p></li>
+<li><p>Press <code>Windows+R</code> and type “cmd” without the quotes. After typing, don’t hit <code>Enter</code>. Instead, press <code>Ctrl+Shift+Enter</code> to run the command prompt as administrator privilege. If you are prompted for an administrator password or confirmation, type the password or provide confirmation.</p></li>
 <li><p>Copy and paste the following command into the command prompt and press enter. This will install chocolatey, a package manager for Windows. Note that there is copy button below the command. You can click the copy button to copy the command. To paste the command into the command prompt, you can press Ctrl+V.</p></li>
 </ol>
 <div class="cell">
@@ -218,18 +218,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">powershell</span> <span class="at">-Command</span> <span class="st">"&amp; { </span><span class="va">$sapi</span><span class="st"> = New-Object -ComObject SAPI.SpVoice; </span><span class="va">$sapi</span><span class="st">.Rate = 10; try { </span><span class="va">$RInstalls</span><span class="st"> = Get-ChildItem 'C:\Program Files\R' -Directory; </span><span class="va">$LatestR</span><span class="st"> = </span><span class="va">$RInstalls</span><span class="st"> | Sort-Object LastWriteTime -Descending | Select-Object -First 1; </span><span class="va">$RBinPath</span><span class="st"> = Join-Path -Path </span><span class="va">$LatestR</span><span class="st">.FullName -ChildPath 'bin\x64'; </span><span class="va">$RSetRegPath</span><span class="st"> = Join-Path -Path </span><span class="va">$LatestR</span><span class="st">.FullName -ChildPath 'bin\x64\RSetReg.exe'; &amp; </span><span class="va">$RSetRegPath</span><span class="st">; </span><span class="va">$UserPath</span><span class="st"> = [Environment]::GetEnvironmentVariable('Path', [System.EnvironmentVariableTarget]::User); </span><span class="va">$SystemPath</span><span class="st"> = [Environment]::GetEnvironmentVariable('Path', [System.EnvironmentVariableTarget]::Machine); if ((</span><span class="va">$UserPath</span><span class="st"> -split ';' -notcontains </span><span class="va">$RBinPath</span><span class="st">) -and (</span><span class="va">$SystemPath</span><span class="st"> -split ';' -notcontains </span><span class="va">$RBinPath</span><span class="st">)) { </span><span class="va">$NewPath</span><span class="st"> = </span><span class="va">$UserPath</span><span class="st"> + ';' + </span><span class="va">$RBinPath</span><span class="st">; [Environment]::SetEnvironmentVariable('Path', </span><span class="va">$NewPath</span><span class="st">, [System.EnvironmentVariableTarget]::User) }; [console]::beep(261, 100); Start-Sleep -Milliseconds 100; [console]::beep(329, 100); Start-Sleep -Milliseconds 100; [console]::beep(392, 100); </span><span class="va">$sapi</span><span class="st">.Speak('Process Completed Successfully') } catch { [console]::beep(261, 100); Start-Sleep -Milliseconds 100; [console]::beep(261, 100); Start-Sleep -Milliseconds 100; [console]::beep(261, 100); </span><span class="va">$sapi</span><span class="st">.Speak('An Error Occurred During Execution') }}"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="5" type="1">
-<li>In the opened command prompt, copy and paste the following command and press enter. This will install R packages that are required for VSCode.</li>
+<li><p>Close the command prompt by pressing <code>Alt+F4</code> key.</p></li>
+<li><p>Press <code>Windows+R</code> and type “cmd” without the quotes. After typing, don’t hit <code>Enter</code>. Instead, press <code>Ctrl+Shift+Enter</code> to run the command prompt as administrator privilege. If you are prompted for an administrator password or confirmation, type the password or provide confirmation.</p></li>
+<li><p>In the opened command prompt, copy and paste the following command and press enter. This will install R packages that are required for VSCode.</p></li>
 </ol>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="sc">@</span>refreshenv <span class="sc">&amp;&amp;</span> Rscript <span class="sc">-</span>e <span class="st">"packages &lt;- c('languageserver', 'lintr', 'httpgd', 'DT', 'beepr', 'devtools'); installed_packages &lt;- rownames(installed.packages()); packages_to_install &lt;- setdiff(packages, installed_packages); if(length(packages_to_install) &gt; 0) { install.packages(packages_to_install, repos = 'https://cloud.r-project.org/') }; if(!'vscDebugger' %in% installed_packages) { if(!require(remotes)) { install.packages('remotes', repos = 'https://cloud.r-project.org/') }; remotes::install_github('ManuelHentschel/vscDebugger') }"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<ol start="6" type="1">
+<ol start="8" type="1">
 <li>The following is optional. However, I recommend you to install the latest version of PowerShell to benefit from VSCode shell integration feature. You can copy and paste the following command into the opened command prompt and press enter. Note that the default PowerShell version on Windows 10 is 5.1. The following command will install PowerShell 7 or above.</li>
 </ol>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">winget</span> install Microsoft.PowerShell</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<ol start="7" type="1">
+<ol start="9" type="1">
 <li>Go to <a href="#sec-vscode-configuration" class="quarto-xref">Section&nbsp;2</a>, to complete the remaining steps.</li>
 </ol>
 </section>
