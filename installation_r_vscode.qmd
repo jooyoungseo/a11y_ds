@@ -110,7 +110,7 @@ Once you have installed R and Visual Studio Code following the instruction descr
 
 4. If you hear "Provide Profile Template URL - Import from Profile Template..." copy and paste the following URL into the opened input box and press enter.
 
-```{block}
+```{bash}
 #| eval: false
 #| label: VSCode-Profile-URL
 
