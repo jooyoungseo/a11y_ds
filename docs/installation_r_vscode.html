@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="JooYoung Seo">
-<meta name="dcterms.date" content="2023-08-01">
+<meta name="dcterms.date" content="2023-08-02">
 
 <title>a11y_ds - Session 1: Installation Guide for R and Visual Studio Code for Screen Reader Users</title>
 <style>
@@ -157,6 +157,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul></li>
   <li><a href="#sec-vscode-configuration" id="toc-sec-vscode-configuration" class="nav-link" data-scroll-target="#sec-vscode-configuration">Visual Studio Code Configuration</a></li>
   <li><a href="#sec-rprofile-settings" id="toc-sec-rprofile-settings" class="nav-link" data-scroll-target="#sec-rprofile-settings">RProfile Settings</a></li>
+  <li><a href="#sec-confirm-installation" id="toc-sec-confirm-installation" class="nav-link" data-scroll-target="#sec-confirm-installation">Verifying R and VSCode Installation</a></li>
   </ul>
 </nav>
     </div>
@@ -182,7 +183,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">August 1, 2023</p>
+      <p class="date">August 2, 2023</p>
     </div>
   </div>
   
@@ -282,7 +283,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p>If you hear “Provide Profile Template URL - Import from Profile Template…” copy and paste the following URL into the opened input box and press enter.</p></li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">https://insiders.vscode.dev/profile/github/a8473b82a7662f5aab69aca5c6709ef6</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">https://insiders.vscode.dev/profile/github/0cbbd65e63c766f7d37586e246d033f6</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="5" type="1">
 <li><p>Press <code>Ctrl+0</code> (on Windows) or <code>Command+0</code> (on Mac) to open the sidebar. You will hear “data_science_accessible Tree View.”</p></li>
@@ -378,6 +379,33 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p>Press <code>Ctrl+S</code> (on Windows) or <code>Command+S</code> (on Mac) to save the file.</p></li>
 <li><p>Press <code>Ctrl+W</code> (on Windows) or <code>Command+W</code> (on Mac) to close the file.</p></li>
 <li><p>Close R terminal by pressing <code>Ctrl+W</code> (on Windows) or <code>Command+W</code> (on Mac). You may be prompted to confirm whether you want to close the terminal. If so, press <code>Enter</code> key to confirm.</p></li>
+</ol>
+</section>
+<section id="sec-confirm-installation" class="level1">
+<h1>Verifying R and VSCode Installation</h1>
+<p>To verify whether R and VSCode are installed correctly, you can follow the steps below:</p>
+<ol type="1">
+<li><p>Open VSCode. You can do this by pressing <code>Windows+R</code> and type “code” without the quotes and press enter. On Mac, you can press <code>Command+Space</code> and type “code” without the quotes and press enter.</p></li>
+<li><p>In VSCode, create an untitled file by pressing <code>Ctrl+N</code> (on Windows) or <code>Command+N</code> (on Mac).</p></li>
+<li><p>In the opened untitled file, type the following code:</p></li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">"Hello world!"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="4" type="1">
+<li><p>Save this untitled file as “test.R” without the quotes. You can save the file by pressing <code>Ctrl+S</code> (on Windows) or <code>Command+S</code> (on Mac). You will be prompted to enter the file name. If you would like to save the file in a specific path, you can include it in the file name. For example, if you would like to save the file in your C drive, you can type “C:.R” without the quotes and hit <code>Enter</code>.</p></li>
+<li><p>In order to execute <code>print("Hello world!")</code> code, place your cursor on the line where the code is located via <code>UpArrow</code> or <code>DownArrow</code> keys.</p></li>
+<li><p>You can execute the <code>print("Hello world!")</code> code by pressing <code>Ctrl+Enter</code> (on Windows) or <code>Command+Enter</code> (on Mac). The code will be sent to the R terminal and the result will be displayed in the R terminal.</p></li>
+<li><p>Press <code>Ctrl+Tab</code> to switch to the R terminal. You will hear something like “R Interactive Terminal.” Your initial focus will be on the R terminal input area where you can type R code. If you press <code>Shift+Tab</code> key, the focus moves to the terminal output area where you can read the result of the executed code via standard arrow navigation. If you press <code>Tab</code> key, the focus moves back to the R terminal input area. I recommend you keep the focus on the R terminal output area.</p></li>
+<li><p>From R terminal, press <code>Ctrl+Tab</code> to come back to the test.R file. You will hear something like “test dot R.” Now you can switch between the R terminal and the test.R file back and forth by pressing <code>Ctrl+Tab</code> key.</p></li>
+<li><p>In the test.R file, type the following code and execute the code by pressing <code>Ctrl+Enter</code> (on Windows) or <code>Command+Enter</code> (on Mac).</p></li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">stop</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="10" type="1">
+<li><p>You will hear chiming sound that indicates an error. If you press <code>Ctrl+Tab</code> key, you will hear “R Interactive Terminal.” If your last focus was on the R terminal output area, you can navigate the executed code via standard arrow navigation. We intentionally stopped the code execution to test whether the error beep sound is played correctly.</p></li>
+<li><p>Once you have verified all of these steps, you can close R terminal by pressing <code>Ctrl+W</code> (on Windows) or <code>Command+W</code> (on Mac). You can also close the test.R file by pressing <code>Ctrl+W</code> (on Windows) or <code>Command+W</code> (on Mac). Close VSCode by pressing <code>Alt+F4</code> key on Windows or <code>Command+Q</code> key on Mac.</p></li>
 </ol>
 
 

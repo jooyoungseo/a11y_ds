@@ -118,7 +118,7 @@ Once you have installed R and Visual Studio Code following the instruction descr
 #| eval: false
 #| label: VSCode-Profile-URL
 
-https://insiders.vscode.dev/profile/github/a8473b82a7662f5aab69aca5c6709ef6
+https://insiders.vscode.dev/profile/github/0cbbd65e63c766f7d37586e246d033f6
 ```
 
 5. Press `Ctrl+0` (on Windows) or `Command+0` (on Mac) to open the sidebar. You will hear "data_science_accessible Tree View."
@@ -230,4 +230,42 @@ View <- function(...) {
 8. Press `Ctrl+W` (on Windows) or `Command+W` (on Mac) to close the file.
 
 9. Close R terminal by pressing `Ctrl+W` (on Windows) or `Command+W` (on Mac). You may be prompted to confirm whether you want to close the terminal. If so, press `Enter` key to confirm.
+
+# Verifying R and VSCode Installation {#sec-confirm-installation}
+
+To verify whether R and VSCode are installed correctly, you can follow the steps below:
+
+1. Open VSCode. You can do this by pressing `Windows+R` and type "code" without the quotes and press enter. On Mac, you can press `Command+Space` and type "code" without the quotes and press enter.
+
+2. In VSCode, create an untitled file by pressing `Ctrl+N` (on Windows) or `Command+N` (on Mac).
+
+3. In the opened untitled file, type the following code:
+
+```{r}
+#| eval: false
+
+print("Hello world!")
+```
+
+4. Save this untitled file as "test.R" without the quotes. You can save the file by pressing `Ctrl+S` (on Windows) or `Command+S` (on Mac). You will be prompted to enter the file name. If you would like to save the file in a specific path, you can include it in the file name. For example, if you would like to save the file in your C drive, you can type "C:\test.R" without the quotes and hit `Enter`.
+
+5. In order to execute `print("Hello world!")` code, place your cursor on the line where the code is located via `UpArrow` or `DownArrow` keys. 
+
+6. You can execute the `print("Hello world!")` code by pressing `Ctrl+Enter` (on Windows) or `Command+Enter` (on Mac). The code will be sent to the R terminal and the result will be displayed in the R terminal.
+
+7. Press `Ctrl+Tab` to switch to the R terminal. You will hear something like "R Interactive Terminal." Your initial focus will be on the R terminal input area where you can type R code. If you press `Shift+Tab` key, the focus moves to the terminal output area where you can read the result of the executed code via standard arrow navigation. If you press `Tab` key, the focus moves back to the R terminal input area. I recommend you keep the focus on the R terminal output area.
+
+8. From R terminal, press `Ctrl+Tab` to come back to the test.R file. You will hear something like "test dot R." Now you can switch between the R terminal and the test.R file back and forth by pressing `Ctrl+Tab` key.
+
+9. In the test.R file, type the following code and execute the code by pressing `Ctrl+Enter` (on Windows) or `Command+Enter` (on Mac).
+
+```{r}
+#| eval: false
+
+stop()
+```
+
+10. You will hear chiming sound that indicates an error. If you press `Ctrl+Tab` key, you will hear "R Interactive Terminal." If your last focus was on the R terminal output area, you can navigate the executed code via standard arrow navigation. We intentionally stopped the code execution to test whether the error beep sound is played correctly.
+
+11. Once you have verified all of these steps, you can close R terminal by pressing `Ctrl+W` (on Windows) or `Command+W` (on Mac). You can also close the test.R file by pressing `Ctrl+W` (on Windows) or `Command+W` (on Mac). Close VSCode by pressing `Alt+F4` key on Windows or `Command+Q` key on Mac.
 
