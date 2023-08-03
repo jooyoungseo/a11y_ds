@@ -6,7 +6,7 @@ date: "`r Sys.Date()`"
 
 # Install R, Visual Studio Code, and Related Dependencies {#sec-install-r-vscode}
 
-this section describes how to install R, Visual Studio Code, and other related dependencies. The following instructions are tested on Windows 10 and Mac OS.
+This section describes how to install R, Visual Studio Code, and other related dependencies. The following instructions are tested on Windows 10 and Mac OS.
 
 ## Windows
 
