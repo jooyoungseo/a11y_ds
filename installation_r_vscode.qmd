@@ -232,7 +232,7 @@ View <- function(...) {
 
 9. Close R terminal by pressing `Ctrl+W` (on Windows) or `Command+W` (on Mac). You may be prompted to confirm whether you want to close the terminal. If so, press `Enter` key to confirm.
 
-# Verifying R and VSCode Installation {#sec-confirm-installation}
+# Verifying R and VSCode Installation {#sec-verify-installation}
 
 To verify whether R and VSCode are installed correctly, you can follow the steps below:
 
