@@ -255,7 +255,7 @@ print("Hello world!")
 
 7. Press `Ctrl+Tab` to switch to the R terminal. You will hear something like "R Interactive Terminal." Your initial focus will be on the R terminal input area where you can type R code. If you press `Shift+Tab` key, the focus moves to the terminal output area where you can read the result of the executed code via standard arrow navigation. If you press `Tab` key, the focus moves back to the R terminal input area. I recommend you keep the focus on the R terminal output area.
 
-8. From R terminal, press `Ctrl+Tab` to come back to the test.R file. You will hear something like "test dot R." Now you can switch between the R terminal and the test.R file back and forth by pressing `Ctrl+Tab` key.
+8. From R terminal, press `Ctrl+Tab` to go back to the test.R file. You will hear something like "test dot R." Now you can switch between the R terminal and the test.R file back and forth by pressing `Ctrl+Tab` key.
 
 9. In the test.R file, type the following code and execute the code by pressing `Ctrl+Enter` (on Windows) or `Command+Enter` (on Mac).
 
