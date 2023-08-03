@@ -2,6 +2,7 @@
 title: "Session 1: Installation Guide for R and Visual Studio Code for Screen Reader Users"
 author: JooYoung Seo
 date: "`r Sys.Date()`"
+number-sections: true
 ---
 
 # Install R, Visual Studio Code, and Related Dependencies {#sec-install-r-vscode}
