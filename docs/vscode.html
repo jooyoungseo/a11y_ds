@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="JooYoung Seo">
 
-<title>a11y_ds</title>
+<title>a11y_ds - Visual Studio Code Cheatsheet</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -87,7 +88,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" rel="" target="" aria-current="page">
+    <a class="nav-link" href="./index.html" rel="" target="">
  <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
@@ -99,7 +100,7 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Installation Guide for R and Visual Studio Code for Screen Reader Users</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./vscode.html" rel="" target="">
+    <a class="nav-link active" href="./vscode.html" rel="" target="" aria-current="page">
  <span class="menu-text">Visual Studio Code Cheatsheet</span></a>
   </li>  
 </ul>
@@ -114,20 +115,33 @@ ul.task-list li input[type="checkbox"] {
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#sec-vscode-layout" id="toc-sec-vscode-layout" class="nav-link active" data-scroll-target="#sec-vscode-layout"><span class="header-section-number">1</span> Visual Studio Code Layout</a></li>
+  <li><a href="#sec-vscode-shortcuts" id="toc-sec-vscode-shortcuts" class="nav-link" data-scroll-target="#sec-vscode-shortcuts"><span class="header-section-number">2</span> Visual Studio Code Keyboard Shortcuts</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">a11y_ds</h1>
+<h1 class="title">Visual Studio Code Cheatsheet</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>JooYoung Seo </p>
+          </div>
+  </div>
     
   
     
@@ -137,9 +151,120 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>This website is a collection of resources for learning about accessible data science. It is a work in progress, and contributions are welcome!</p>
+<section id="sec-vscode-layout" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Visual Studio Code Layout</h1>
+<p>The following is a brief overview of the VS Code layout. For more information, see the <a href="https://code.visualstudio.com/docs/getstarted/userinterface" target="_blank">VS Code documentation</a>.</p>
+<ol type="1">
+<li><p>Title Bar: The top-most bar that displays the name of the currently open file or folder and the VS Code application control buttons (minimize, maximize, close) depending on the operating system.</p></li>
+<li><p>Menu Bar: Below the Title Bar, with options like File, Edit, View, Go, Debug, Terminal, and Help.</p></li>
+<li><p>Activity Bar: Vertically aligned to the left, it contains icons for Explorer, Search, Source Control, Run, and Extensions.</p></li>
+<li><p>Side Bar: To the right of the Activity Bar. Displays different content based on the selected option in the Activity Bar. The Explorer in the Side Bar shows the file directory.</p></li>
+<li><p>Editor Area: The large central area where files can be viewed and edited.</p></li>
+<li><p>Status Bar: At the very bottom, showing information about the opened project and the state of VS Code. Includes items like Git branch, errors and warnings, and the details of the opened file.</p></li>
+<li><p>Panels: Located at the bottom, but can be toggled to the right side. These display different types of information like Problems, Output, Debug Console, and Terminal. Panels and the Editor Area can be resized horizontally.</p></li>
+</ol>
+<p>Note: VS Code is highly customizable, so users can change the layout to suit their needs.</p>
+</section>
+<section id="sec-vscode-shortcuts" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Visual Studio Code Keyboard Shortcuts</h1>
+<p>For Windows/Linux Users:</p>
+<ol type="1">
+<li><p><strong>File Navigation and Management:</strong></p>
+<ul>
+<li><code>Ctrl + P</code>: Quick Open, Go to File…</li>
+<li><code>Ctrl + W</code>: Close current file</li>
+<li><code>Ctrl + Shift + T</code>: Reopen closed file</li>
+<li><code>Ctrl + Tab</code>: Navigate through recently used files</li>
+<li><code>Ctrl + Shift + E</code>: Show Explorer / Toggle focus</li>
+</ul></li>
+<li><p><strong>Search:</strong></p>
+<ul>
+<li><code>Ctrl + F</code>: Find</li>
+<li><code>Ctrl + H</code>: Replace</li>
+<li><code>Ctrl + Shift + F</code>: Find in files</li>
+</ul></li>
+<li><p><strong>Editing:</strong></p>
+<ul>
+<li><code>Ctrl + X</code>: Cut line (empty selection)</li>
+<li><code>Ctrl + C</code>: Copy line (empty selection)</li>
+<li><code>Ctrl + V</code>: Paste</li>
+<li><code>Ctrl + /</code>: Toggle line comment</li>
+<li><code>Ctrl + Shift + /</code>: Toggle block comment</li>
+<li><code>Alt + Up / Down</code>: Move line up/down</li>
+<li><code>Shift + Alt + Up / Down</code>: Copy line up/down</li>
+<li><code>Ctrl + Space</code>: Trigger suggestion</li>
+</ul></li>
+<li><p><strong>View:</strong></p>
+<ul>
+<li><code>Ctrl + B</code>: Toggle Sidebar visibility</li>
+<li><code>Ctrl + Shift + E</code>: Show Explorer</li>
+<li><code>Ctrl + Shift + G</code>: Show Source Control</li>
+<li><code>Ctrl + Shift + D</code>: Show Run</li>
+<li><code>Ctrl + Shift + X</code>: Show Extensions</li>
+</ul></li>
+<li><p><strong>Integrated Terminal:</strong></p>
+<ul>
+<li><code>Ctrl + `</code>: Show integrated terminal</li>
+<li><code>Ctrl + Shift +</code>: Create new terminal</li>
+</ul></li>
+<li><p><strong>Debugging:</strong></p>
+<ul>
+<li><code>F5</code>: Start/Continue</li>
+<li><code>Shift + F5</code>: Stop</li>
+<li><code>F9</code>: Toggle breakpoint</li>
+</ul></li>
+</ol>
+<p>For Mac Users:</p>
+<ol type="1">
+<li><p><strong>File Navigation and Management:</strong></p>
+<ul>
+<li><code>Cmd + P</code>: Quick Open, Go to File…</li>
+<li><code>Cmd + W</code>: Close current file</li>
+<li><code>Cmd + Shift + T</code>: Reopen closed file</li>
+<li><code>Cmd + Tab</code>: Navigate through recently used files</li>
+<li><code>Cmd + Shift + E</code>: Show Explorer / Toggle focus</li>
+</ul></li>
+<li><p><strong>Search:</strong></p>
+<ul>
+<li><code>Cmd + F</code>: Find</li>
+<li><code>Cmd + H</code>: Replace</li>
+<li><code>Cmd + Shift + F</code>: Find in files</li>
+</ul></li>
+<li><p><strong>Editing:</strong></p>
+<ul>
+<li><code>Cmd + X</code>: Cut line (empty selection)</li>
+<li><code>Cmd + C</code>: Copy line (empty selection)</li>
+<li><code>Cmd + V</code>: Paste</li>
+<li><code>Cmd + /</code>: Toggle line comment</li>
+<li><code>Cmd + Shift + /</code>: Toggle block comment</li>
+<li><code>Option + Up / Down</code>: Move line up/down</li>
+<li><code>Shift + Option + Up / Down</code>: Copy line up/down</li>
+<li><code>Cmd + Space</code>: Trigger suggestion</li>
+</ul></li>
+<li><p><strong>View:</strong></p>
+<ul>
+<li><code>Cmd + B</code>: Toggle Sidebar visibility</li>
+<li><code>Cmd + Shift + E</code>: Show Explorer</li>
+<li><code>Cmd + Shift + G</code>: Show Source Control</li>
+<li><code>Cmd + Shift + D</code>: Show Run</li>
+<li><code>Cmd + Shift + X</code>: Show Extensions</li>
+</ul></li>
+<li><p><strong>Integrated Terminal:</strong></p>
+<ul>
+<li><code>Ctrl + `</code>: Show integrated terminal</li>
+<li><code>Ctrl + Shift +</code>: Create new terminal</li>
+</ul></li>
+<li><p><strong>Debugging:</strong></p>
+<ul>
+<li><code>Fn + F5</code>: Start/Continue</li>
+<li><code>Shift + Fn + F5</code>: Stop</li>
+<li><code>Fn + F9</code>: Toggle breakpoint</li>
+</ul></li>
+</ol>
+<p>Note: These are default shortcuts and they can be customized according to the user’s preferences.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

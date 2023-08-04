@@ -10,6 +10,7 @@ website:
         text: Home
       - about.qmd
       - installation_r_vscode.qmd
+      - vscode.qmd
 
 format:
   html:

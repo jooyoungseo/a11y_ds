@@ -1,0 +1,128 @@
+---
+title: "Visual Studio Code Cheatsheet"
+author: JooYoung Seo
+---
+
+
+# Visual Studio Code Layout {#sec-vscode-layout}
+
+The following is a brief overview of the VS Code layout. For more information, see the [VS Code documentation](https://code.visualstudio.com/docs/getstarted/userinterface){target="_blank"}.
+
+1. Title Bar:
+   The top-most bar that displays the name of the currently open file or folder and the VS Code application control buttons (minimize, maximize, close) depending on the operating system.
+
+2. Menu Bar:
+   Below the Title Bar, with options like File, Edit, View, Go, Debug, Terminal, and Help.
+
+3. Activity Bar:
+   Vertically aligned to the left, it contains icons for Explorer, Search, Source Control, Run, and Extensions.
+
+4. Side Bar:
+   To the right of the Activity Bar. Displays different content based on the selected option in the Activity Bar. The Explorer in the Side Bar shows the file directory.
+
+5. Editor Area:
+   The large central area where files can be viewed and edited.
+
+6. Status Bar:
+   At the very bottom, showing information about the opened project and the state of VS Code. Includes items like Git branch, errors and warnings, and the details of the opened file.
+
+7. Panels:
+   Located at the bottom, but can be toggled to the right side. These display different types of information like Problems, Output, Debug Console, and Terminal. Panels and the Editor Area can be resized horizontally.
+
+Note: VS Code is highly customizable, so users can change the layout to suit their needs.
+
+# Visual Studio Code Keyboard Shortcuts {#sec-vscode-shortcuts}
+
+For Windows/Linux Users:
+
+1. **File Navigation and Management:**
+
+   - `Ctrl + P`: Quick Open, Go to File…
+   - `Ctrl + W`: Close current file
+   - `Ctrl + Shift + T`: Reopen closed file
+   - `Ctrl + Tab`: Navigate through recently used files
+   - `Ctrl + Shift + E`: Show Explorer / Toggle focus
+
+2. **Search:**
+
+   - `Ctrl + F`: Find
+   - `Ctrl + H`: Replace
+   - `Ctrl + Shift + F`: Find in files
+
+3. **Editing:**
+
+   - `Ctrl + X`: Cut line (empty selection)
+   - `Ctrl + C`: Copy line (empty selection)
+   - `Ctrl + V`: Paste
+   - `Ctrl + /`: Toggle line comment
+   - `Ctrl + Shift + /`: Toggle block comment
+   - `Alt + Up / Down`: Move line up/down
+   - `Shift + Alt + Up / Down`: Copy line up/down
+   - `Ctrl + Space`: Trigger suggestion
+
+4. **View:**
+
+   - `Ctrl + B`: Toggle Sidebar visibility
+   - `Ctrl + Shift + E`: Show Explorer
+   - `Ctrl + Shift + G`: Show Source Control
+   - `Ctrl + Shift + D`: Show Run
+   - `Ctrl + Shift + X`: Show Extensions
+
+5. **Integrated Terminal:**
+
+   - `` Ctrl + ` ``: Show integrated terminal
+   - `Ctrl + Shift + `: Create new terminal
+
+6. **Debugging:**
+
+   - `F5`: Start/Continue
+   - `Shift + F5`: Stop
+   - `F9`: Toggle breakpoint
+
+For Mac Users:
+
+1. **File Navigation and Management:**
+
+   - `Cmd + P`: Quick Open, Go to File…
+   - `Cmd + W`: Close current file
+   - `Cmd + Shift + T`: Reopen closed file
+   - `Cmd + Tab`: Navigate through recently used files
+   - `Cmd + Shift + E`: Show Explorer / Toggle focus
+
+2. **Search:**
+
+   - `Cmd + F`: Find
+   - `Cmd + H`: Replace
+   - `Cmd + Shift + F`: Find in files
+
+3. **Editing:**
+
+   - `Cmd + X`: Cut line (empty selection)
+   - `Cmd + C`: Copy line (empty selection)
+   - `Cmd + V`: Paste
+   - `Cmd + /`: Toggle line comment
+   - `Cmd + Shift + /`: Toggle block comment
+   - `Option + Up / Down`: Move line up/down
+   - `Shift + Option + Up / Down`: Copy line up/down
+   - `Cmd + Space`: Trigger suggestion
+
+4. **View:**
+
+   - `Cmd + B`: Toggle Sidebar visibility
+   - `Cmd + Shift + E`: Show Explorer
+   - `Cmd + Shift + G`: Show Source Control
+   - `Cmd + Shift + D`: Show Run
+   - `Cmd + Shift + X`: Show Extensions
+
+5. **Integrated Terminal:**
+
+   - `` Ctrl + ` ``: Show integrated terminal
+   - `Ctrl + Shift + `: Create new terminal
+
+6. **Debugging:**
+
+   - `Fn + F5`: Start/Continue
+   - `Shift + Fn + F5`: Stop
+   - `Fn + F9`: Toggle breakpoint
+
+Note: These are default shortcuts and they can be customized according to the user's preferences.
