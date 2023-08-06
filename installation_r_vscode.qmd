@@ -118,7 +118,7 @@ Once you have installed R and Visual Studio Code following the instruction descr
 #| eval: false
 #| label: VSCode-Profile-URL
 
-https://insiders.vscode.dev/profile/github/0cbbd65e63c766f7d37586e246d033f6
+https://insiders.vscode.dev/profile/github/9214db7e3ef2625f774d1301174529de
 ```
 
 5. Press `Ctrl+0` (on Windows) or `Command+0` (on Mac) to open the sidebar. You will hear "data_science_accessible Tree View."
