@@ -1,0 +1,24 @@
+---
+title: "Windows 11 Tips: Restore the legacy context menu"
+author: "JooYoung Seo"
+---
+
+# Windows 11 Tips {#sec-windows-11-tips}
+
+Windows 11 has the modern context menu in the File Explorer. This means you have to additionally click "Show more options" at the end of the list when you press `Shift+F10`.
+
+This may be confusing for screen reader users. I recommend Windows 11 screen reader users to use the following setting to restore the legacy context menu.
+
+1. Press `Windows+R` to open the Run dialog. Type "cmd" without quotes and press `Ctrl+Shift+Enter` to open the Command Prompt with administrator privileges. You may be prompted to allow the app to make changes to your device. Press `Alt+Y` to allow it.
+
+2. Copy and paste the following command to the Command Prompt and press `Enter`:
+
+```{r}
+#| eval: false
+
+reg.exe add "H#| KCU\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\InprocServer32" /f /ve
+```
+
+3. Restart your computer.
+
+* Note: This content is retrieved from [Microsoft Community](https://answers.microsoft.com/en-us/windows/forum/all/restore-old-right-click-context-menu-in-windows-11/a62e797c-eaf3-411b-aeec-e460e6e5a82a){target=_blank}.

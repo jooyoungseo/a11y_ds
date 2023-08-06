@@ -11,6 +11,7 @@ website:
       - about.qmd
       - installation_r_vscode.qmd
       - vscode.qmd
+      - windows11.qmd
 
 format:
   html:
