@@ -163,7 +163,7 @@ usethis::edit_r_profile()
 
 # Useful option 1
 ## Setting text-based interaction instead of R GUI dialog box; especially, useful when choosing CRAN mirror server for package installation.
-## Since R GUI dialog box is not accesible, blind R users tend to pre-define their CRAN mirror server using `chooseCRANmirror(ind = 1)`; however, you can now access the CRAN server list interactively using the following option.
+## Since R GUI dialog box is not accessible, blind R users tend to pre-define their CRAN mirror server using `chooseCRANmirror(ind = 1)`; however, you can now access the CRAN server list interactively using the following option.
 ## Furthermore, when updating R packages, users often encounter inaccessible dialog box asking about whether to also update other dependencies, if any. The following option also resolves that issue by allowing users to choose based on text UI.
 options(menu.graphics = FALSE)
 
