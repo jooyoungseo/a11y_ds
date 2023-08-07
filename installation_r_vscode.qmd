@@ -249,7 +249,7 @@ To verify whether R and VSCode are installed correctly, you can follow the steps
 print("Hello world!")
 ```
 
-4. Save this untitled file as "test.R" without the quotes. You can save the file by pressing `Ctrl+S` (on Windows) or `Command+S` (on Mac). You will be prompted to enter the file name. If you would like to save the file in a specific path, you can include it in the file name. For example, if you would like to save the file in your C drive, you can type "C:\test.R" without the quotes and hit `Enter`.
+4. Save this untitled file as "test.R" without the quotes. You can save the file by pressing `Ctrl+S` (on Windows) or `Command+S` (on Mac). You will be prompted to enter the file name. If you would like to save the file in a specific path, you can include it in the file name. For example, if you would like to save the file in your C drive, you can type "C:\\test.R" without the quotes and hit `Enter`.
 
 5. In order to execute `print("Hello world!")` code, place your cursor on the line where the code is located via `UpArrow` or `DownArrow` keys. 
 
