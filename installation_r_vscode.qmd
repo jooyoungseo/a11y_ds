@@ -96,6 +96,7 @@ quarto install tinytex
 #| eval: false
 #| label: Install-R-Packages
 
+zsh
 Rscript -e 'packages <- c("languageserver", "lintr", "httpgd", "DT", "beepr", "devtools"); installed_packages <- rownames(installed.packages()); packages_to_install <- setdiff(packages, installed_packages); if(length(packages_to_install) > 0) { install.packages(packages_to_install, repos = "https://cloud.r-project.org/") }; if(!"vscDebugger" %in% installed_packages) { if(!require(remotes)) { install.packages("remotes", repos = "https://cloud.r-project.org/") }; remotes::install_github("ManuelHentschel/vscDebugger") }'
 ```
 
