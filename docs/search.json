@@ -28,6 +28,13 @@
     "text": "The following assumes that you have installed Homebrew on your system. If you haven’t installed Homebrew, you can install it by following the instruction described in the Homebrew website.\n\nOpen terminal by pressing Command+Space and type “terminal” without the quotes. Press enter to open the terminal.\nCopy and paste the following command into the terminal and press enter. Note that there is copy button below the command. You can click the copy button to copy the command. To paste the command into the command prompt, you can press CMD+V. Some commands may require you to enter your password. If so, you will be prompted to enter your password. You will not see any characters when you type your password. Just type your password and press enter.\n\n\n#  Install R\nbrew install r\n\n# Install Pandoc\nbrew install pandoc\n\n# Install Quarto\nbrew install quarto\n\n# Install VSCode\nbrew install --cask visual-studio-code\n\n# Install xcode command line tools\nxcode-select --install\n\n# Install TinyTeX\nquarto install tinytex\n\n\nIn the terminal, copy and paste the following command and press enter. This will install R packages that are required for VSCode.\n\n\nzsh\nRscript -e 'packages &lt;- c(\"languageserver\", \"lintr\", \"httpgd\", \"DT\", \"beepr\", \"devtools\"); installed_packages &lt;- rownames(installed.packages()); packages_to_install &lt;- setdiff(packages, installed_packages); if(length(packages_to_install) &gt; 0) { install.packages(packages_to_install, repos = \"https://cloud.r-project.org/\") }; if(!\"vscDebugger\" %in% installed_packages) { if(!require(remotes)) { install.packages(\"remotes\", repos = \"https://cloud.r-project.org/\") }; remotes::install_github(\"ManuelHentschel/vscDebugger\") }'\n\n\nGo to Section 2, to complete the remaining steps."
   },
   {
+    "objectID": "ds_fundamentals.html",
+    "href": "ds_fundamentals.html",
+    "title": "Data Science Fundamentals",
+    "section": "",
+    "text": "1 Resources\nPlease visit the following resources on data science fundamentals.\n\ntidyverse slide decks.\nDownload hotel.csv."
+  },
+  {
     "objectID": "about.html",
     "href": "about.html",
     "title": "About",

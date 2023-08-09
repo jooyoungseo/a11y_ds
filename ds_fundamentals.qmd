@@ -1,0 +1,11 @@
+---
+title: Data Science Fundamentals
+---
+
+# Resources
+
+Please visit the following resources on data science fundamentals.
+
+1. [tidyverse slide decks](https://jooyoungseo.github.io/a11y_ds/ds_fundamentals){target="_blank"}.
+
+2. [Download hotel.csv](https://jooyoungseo.github.io/a11y_ds/ds_fundamentals/data/hotels.csv){target="_blank"}.
