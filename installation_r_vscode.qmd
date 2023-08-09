@@ -25,7 +25,7 @@ This section describes how to install R, Visual Studio Code, and other related d
 ```{bash}
 #| eval: false
 
-choco upgrade tinytex pandoc quarto rtools r.project vscode --force -y
+choco upgrade tinytex pandoc quarto rtools r.project vscode -y
 ```
 
 4. After installation, type the following in the opened command prompt and hit enter key. This will add R to your path environment variable. You will hear a "do mi sol" beep sound when the installation is completed. If it fails to install, you will hear a "do do do" beep sound. If you hear the "do do do" beep sound, you can try to run the command again.
