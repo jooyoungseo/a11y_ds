@@ -9,6 +9,7 @@ website:
       - href: index.qmd
         text: Home
       - about.qmd
+      - download_tactile_graphs.qmd
       - installation_r_vscode.qmd
       - vscode.qmd
       - ds_fundamentals.qmd
